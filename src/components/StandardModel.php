@@ -2,15 +2,15 @@
 
 namespace arogachev\excel\components;
 
-use yii\base\InvalidParamException;
-use yii\base\Object;
+use yii\base\BaseObject;
+use yii\base\InvalidArgumentException;
 use yii\helpers\ArrayHelper;
 
 /**
  * @property StandardAttribute[] $standardAttributes
  * @property \yii\db\ActiveRecord $instance
  */
-class StandardModel extends Object
+class StandardModel extends BaseObject
 {
     /**
      * @var string
@@ -60,19 +60,19 @@ class StandardModel extends Object
     }
 
     /**
-     * @throws InvalidParamException
+     * @throws InvalidArgumentException
      */
     protected function initInstance()
     {
         if (!$this->className) {
-            throw new InvalidParamException('Class name is required for standard model.');
+            throw new InvalidArgumentException('Class name is required for standard model.');
         }
 
         $this->_instance = new $this->className;
     }
 
     /**
-     * @throws InvalidParamException
+     * @throws InvalidArgumentException
      */
     protected function initStandardAttributes()
     {
@@ -105,13 +105,13 @@ class StandardModel extends Object
     {
         $attributeNames = ArrayHelper::getColumn($this->_standardAttributes, 'name');
         if ($attributeNames != array_unique($attributeNames)) {
-            throw new InvalidParamException("For standard model \"$this->className\" attribute names are not unique.");
+            throw new InvalidArgumentException("For standard model \"$this->className\" attribute names are not unique.");
         }
 
         if ($this->useAttributeLabels) {
             $attributeLabels = ArrayHelper::getColumn($this->_standardAttributes, 'label');
             if ($attributeLabels != array_unique($attributeLabels)) {
-                throw new InvalidParamException("For standard model \"$this->className\" attribute labels are not unique.");
+                throw new InvalidArgumentException("For standard model \"$this->className\" attribute labels are not unique.");
             }
         }
     }

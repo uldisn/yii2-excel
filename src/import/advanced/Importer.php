@@ -191,7 +191,9 @@ class Importer extends BaseImporter
 
         $sheetNames = $this->sheetNames === '*' ? $this->_phpExcel->getSheetNames() : (array) $this->sheetNames;
         foreach ($sheetNames as $sheetName) {
+            dump($sheetName);
             $sheet = $this->_phpExcel->getSheetByName($sheetName);
+            dump($sheet);
             $this->fillModels($sheet->getRowIterator());
         }
 

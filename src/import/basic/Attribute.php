@@ -5,8 +5,7 @@ namespace arogachev\excel\import\basic;
 use arogachev\excel\components\Attribute as BaseAttribute;
 use arogachev\excel\import\exceptions\CellException;
 use PHPExcel_Cell;
-use yii\base\Component;
-use yii\base\InvalidParamException;
+use yii\base\InvalidArgumentException;
 use yii\db\ActiveQuery;
 
 /**
@@ -39,7 +38,7 @@ class Attribute extends BaseAttribute
     /**
      * @param boolean $throwException
      * @throws CellException
-     * @throws InvalidParamException
+     * @throws InvalidArgumentException
      */
     public function replaceValue($throwException = false)
     {
@@ -73,7 +72,7 @@ class Attribute extends BaseAttribute
                 $value = $result;
             }
         } else {
-            throw new InvalidParamException('$valueReplacement must be specified as array or callable.');
+            throw new InvalidArgumentException('$valueReplacement must be specified as array or callable.');
         }
 
         if ($value !== null) {

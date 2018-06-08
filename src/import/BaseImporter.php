@@ -10,7 +10,7 @@ use PHPExcel_IOFactory;
 use Yii;
 use yii\base\Component;
 use yii\base\Event;
-use yii\base\InvalidParamException;
+use yii\base\InvalidArgumentException;
 
 /**
  * @property PHPExcel $phpExcel
@@ -64,11 +64,11 @@ abstract class BaseImporter extends Component
     public function init()
     {
         if (!$this->filePath) {
-            throw new InvalidParamException('File path not specified or file not uploaded.');
+            throw new InvalidArgumentException('File path not specified or file not uploaded.');
         }
 
         if (!file_exists($this->filePath)) {
-            throw new InvalidParamException("File not exist in path \"$this->filePath\".");
+            throw new InvalidArgumentException("File not exist in path \"$this->filePath\".");
         }
 
         foreach ($this->standardModelsConfig as $config) {

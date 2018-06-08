@@ -3,13 +3,13 @@
 namespace arogachev\excel\components;
 
 use arogachev\excel\exceptions\StandardAttributeException;
-use yii\base\Object;
+use yii\base\BaseObject;
 
 /**
  * @property StandardModel $standardModel
  * @property string $column
  */
-class StandardAttribute extends Object
+class StandardAttribute extends BaseObject
 {
     /**
      * @var string

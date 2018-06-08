@@ -7,10 +7,8 @@ use arogachev\excel\import\exceptions\CellException;
 use arogachev\excel\import\exceptions\RowException;
 use PHPExcel_Worksheet_Row;
 use yii\base\Event;
-use yii\base\InvalidParamException;
-use yii\base\Object;
+use yii\base\InvalidArgumentException;
 use yii\db\ActiveRecord;
-use yii\helpers\ArrayHelper;
 
 /**
  * @property StandardAttribute[] $standardAttributes
@@ -49,7 +47,7 @@ class StandardModel extends BaseStandardModel
     }
 
     /**
-     * @throws InvalidParamException
+     * @throws InvalidArgumentException
      */
     protected function initInstance()
     {

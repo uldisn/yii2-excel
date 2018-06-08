@@ -4,7 +4,6 @@ namespace arogachev\excel\import\basic;
 
 use arogachev\excel\components\StandardAttribute as BaseStandardAttribute;
 use arogachev\excel\exceptions\StandardAttributeException;
-use yii\base\Object;
 use yii\helpers\ArrayHelper;
 
 /**

@@ -4,9 +4,9 @@ namespace arogachev\excel\import;
 
 use arogachev\excel\import\exceptions\CellException;
 use PHPExcel_Cell;
-use yii\base\Object;
+use yii\base\BaseObject;
 
-class CellParser extends Object
+class CellParser extends BaseObject
 {
     // Hex color codes
 
