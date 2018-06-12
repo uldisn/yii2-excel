@@ -29,7 +29,7 @@ class StandardModel extends BasicStandardModel
     }
 
     /**
-     * @param \PHPExcel_Worksheet_Row $row
+     * @param \PhpOffice\PhpSpreadsheet\Worksheet\Row $row
      */
     public function setDefaultAttributes($row)
     {

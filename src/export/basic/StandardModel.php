@@ -64,7 +64,7 @@ class StandardModel extends BaseStandardModel
     }
 
     /**
-     * @param \PHPExcel_Worksheet $sheet
+     * @param \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $sheet
      */
     public function exportAttributeNames($sheet)
     {

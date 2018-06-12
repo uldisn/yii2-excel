@@ -2,15 +2,15 @@
 
 namespace arogachev\excel\import\exceptions;
 
-use PHPExcel_Cell;
+use PhpOffice\PhpSpreadsheet\Cell\Cell;
 
 class CellException extends ImportException
 {
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * {@inheritdoc}
      */
-    public function __construct(PHPExcel_Cell $cell, $message = "", $code = 0, \Exception $previous = null)
+    public function __construct(Cell $cell, $message = "", $code = 0, \Exception $previous = null)
     {
         $sheetTitle = $cell->getWorksheet()->getTitle();
         $cellCoordinate = $cell->getCoordinate();

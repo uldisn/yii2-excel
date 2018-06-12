@@ -5,15 +5,15 @@ namespace arogachev\excel\import;
 use arogachev\excel\import\basic\Model;
 use arogachev\excel\import\basic\StandardModel;
 use arogachev\excel\import\exceptions\ImportException;
-use PHPExcel;
-use PHPExcel_IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 use Yii;
 use yii\base\Component;
 use yii\base\Event;
 use yii\base\InvalidArgumentException;
 
 /**
- * @property PHPExcel $phpExcel
+ * @property Spreadsheet $phpExcel
  * @property string $error
  * @property \yii\db\ActiveRecord $wrongModel
  * @property Model[] $models
@@ -33,7 +33,7 @@ abstract class BaseImporter extends Component
     public $standardModelsConfig;
 
     /**
-     * @var PHPExcel
+     * @var Spreadsheet
      */
     protected $_phpExcel;
 
@@ -120,11 +120,11 @@ abstract class BaseImporter extends Component
 
     protected function safeRun()
     {
-        $this->_phpExcel = PHPExcel_IOFactory::load($this->filePath);
+        $this->_phpExcel = IOFactory::load($this->filePath);
     }
 
     /**
-     * @return PHPExcel
+     * @return Spreadsheet
      */
     public function getPhpExcel()
     {
@@ -164,7 +164,7 @@ abstract class BaseImporter extends Component
     }
 
     /**
-     * @param \PHPExcel_Worksheet_RowIterator|\PHPExcel_Worksheet_Row[] $rows
+     * @param \PhpOffice\PhpSpreadsheet\Worksheet\RowIterator|\PhpOffice\PhpSpreadsheet\Worksheet\Row[] $rows
      */
     abstract protected function fillModels($rows);
 }

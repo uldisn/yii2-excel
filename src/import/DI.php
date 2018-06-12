@@ -4,7 +4,7 @@ namespace arogachev\excel\import;
 
 use arogachev\excel\import\advanced\Importer as AdvancedImporter;
 use arogachev\excel\import\basic\Importer as BasicImporter;
-use PHPExcel;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Yii;
 
 class DI
@@ -27,7 +27,7 @@ class DI
     }
 
     /**
-     * @return PHPExcel
+     * @return Spreadsheet
      * @throws \yii\base\InvalidConfigException
      */
     public static function getPHPExcel()

@@ -7,7 +7,7 @@ use arogachev\excel\import\BaseImporter;
 use arogachev\excel\import\CellParser;
 use arogachev\excel\import\exceptions\CellException;
 use arogachev\excel\import\exceptions\RowException;
-use PHPExcel_Cell;
+use PhpOffice\PhpSpreadsheet\Cell\Cell;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
@@ -208,7 +208,7 @@ class Importer extends BaseImporter
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @throws CellException
      */
     protected function fillCurrentStandardModel($cell)

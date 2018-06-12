@@ -5,7 +5,7 @@ namespace arogachev\excel\helpers;
 class PHPExcelHelper
 {
     /**
-     * @param \PHPExcel_Worksheet_Row $row
+     * @param \PhpOffice\PhpSpreadsheet\Worksheet\Row $row
      * @return boolean
      */
     public static function isRowEmpty($row)

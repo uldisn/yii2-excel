@@ -5,7 +5,7 @@ namespace arogachev\excel\import\basic;
 use arogachev\excel\components\Model as BaseModel;
 use arogachev\excel\import\DI;
 use arogachev\excel\import\exceptions\RowException;
-use PHPExcel_Worksheet_Row;
+use PhpOffice\PhpSpreadsheet\Worksheet\Row;
 use yii\base\Component;
 
 /**
@@ -16,7 +16,7 @@ class Model extends BaseModel
     const EVENT_INIT = 'init';
 
     /**
-     * @var PHPExcel_Worksheet_Row
+     * @var Row
      */
     public $row;
 

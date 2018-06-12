@@ -4,7 +4,7 @@ namespace arogachev\excel\import\basic;
 
 use arogachev\excel\components\Attribute as BaseAttribute;
 use arogachev\excel\import\exceptions\CellException;
-use PHPExcel_Cell;
+use PhpOffice\PhpSpreadsheet\Cell\Cell;
 use yii\base\InvalidArgumentException;
 use yii\db\ActiveQuery;
 
@@ -14,7 +14,7 @@ use yii\db\ActiveQuery;
 class Attribute extends BaseAttribute
 {
     /**
-     * @var PHPExcel_Cell
+     * @var Cell
      */
     public $cell;
 

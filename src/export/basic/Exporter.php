@@ -2,8 +2,8 @@
 
 namespace arogachev\excel\export\basic;
 
-use PHPExcel;
-use PHPExcel_IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 use yii\base\BaseObject;
 
 class Exporter extends BaseObject
@@ -39,7 +39,7 @@ class Exporter extends BaseObject
     public $standardModelsConfig;
 
     /**
-     * @var PHPExcel
+     * @var \PhpOffice\PhpSpreadsheet\Spreadsheet
      */
     protected $_phpExcel;
 
@@ -76,7 +76,7 @@ class Exporter extends BaseObject
 
     public function run()
     {
-        $this->_phpExcel = new PHPExcel;
+        $this->_phpExcel = new Spreadsheet;
         $sheet = $this->_phpExcel->getActiveSheet();
 
         $this->fillModels();
@@ -89,7 +89,7 @@ class Exporter extends BaseObject
             $row++;
         }
 
-        $writer = PHPExcel_IOFactory::createWriter($this->_phpExcel, 'Excel2007');
+        $writer = IOFactory::createWriter($this->_phpExcel, 'Excel2007');
 
         if ($this->filePath) {
             $filePath = is_callable($this->filePath) ? call_user_func($this->filePath) : $this->filePath;

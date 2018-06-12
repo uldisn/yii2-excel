@@ -5,7 +5,7 @@ namespace arogachev\excel\import\basic;
 use arogachev\excel\components\StandardModel as BaseStandardModel;
 use arogachev\excel\import\exceptions\CellException;
 use arogachev\excel\import\exceptions\RowException;
-use PHPExcel_Worksheet_Row;
+use PhpOffice\PhpSpreadsheet\Worksheet\Row;
 use yii\base\Event;
 use yii\base\InvalidArgumentException;
 use yii\db\ActiveRecord;
@@ -87,7 +87,7 @@ class StandardModel extends BaseStandardModel
     }
 
     /**
-     * @param PHPExcel_Worksheet_Row $row
+     * @param Row $row
      * @return boolean
      * @throws CellException
      * @throws RowException

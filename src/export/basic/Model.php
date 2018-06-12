@@ -25,7 +25,7 @@ class Model extends BaseModel
     }
 
     /**
-     * @param \PHPExcel_Worksheet $sheet
+     * @param \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $sheet
      * @param integer $row
      */
     public function exportAttributeValues($sheet, $row)

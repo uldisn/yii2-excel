@@ -63,7 +63,7 @@ class BasicExporterTest extends TestCase
 
         $exporter->run();
 
-        $phpExcel = PHPExcel_IOFactory::load($exporter->filePath);
+        $phpExcel = PhpOffice\PhpSpreadsheet\IOFactory::load($exporter->filePath);
 
         $this->assertEquals($phpExcel->getActiveSheet()->getTitle(), 'Tests');
 

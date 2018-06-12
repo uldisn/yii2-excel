@@ -38,7 +38,7 @@ class CellBehavior extends Behavior
     }
 
     /**
-     * @return \PHPExcel_Cell
+     * @return \PhpOffice\PhpSpreadsheet\Cell\Cell
      */
     public function getInitialCell()
     {

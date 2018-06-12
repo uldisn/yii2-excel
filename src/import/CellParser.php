@@ -3,7 +3,7 @@
 namespace arogachev\excel\import;
 
 use arogachev\excel\import\exceptions\CellException;
-use PHPExcel_Cell;
+use PhpOffice\PhpSpreadsheet\Cell\Cell;
 use yii\base\BaseObject;
 
 class CellParser extends BaseObject
@@ -113,21 +113,21 @@ class CellParser extends BaseObject
     {
         if (!$this->modelLabelDetection) {
             $this->modelLabelDetection = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 return $cell->getStyle()->getFont()->getBold();
             };
         }
 
         if (!$this->modelLabelGetting) {
             $this->modelLabelGetting = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 return $cell->getValue();
             };
         }
 
         if (!$this->modelDefaultsLabelDetection) {
             $this->modelDefaultsLabelDetection = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 $isBold = $cell->getStyle()->getFont()->getBold();
                 $underline = $cell->getStyle()->getFont()->getUnderline();
 
@@ -137,28 +137,28 @@ class CellParser extends BaseObject
 
         if (!$this->modelDefaultsLabelGetting) {
             $this->modelDefaultsLabelGetting = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 return $cell->getValue();
             };
         }
 
         if (!$this->attributeNameDetection) {
             $this->attributeNameDetection = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 return $cell->getStyle()->getFont()->getItalic();
             };
         }
 
         if (!$this->attributeNameGetting) {
             $this->attributeNameGetting = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 return $cell->getValue();
             };
         }
 
         if (!$this->savedPkDetection) {
             $this->savedPkDetection = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 $startColor = $cell->getStyle()->getFill()->getStartColor()->getRGB();
                 $endColor = $cell->getStyle()->getFill()->getEndColor()->getRGB();
 
@@ -168,14 +168,14 @@ class CellParser extends BaseObject
 
         if (!$this->savedPkGetting) {
             $this->savedPkGetting = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 return $cell->getValue();
             };
         }
 
         if (!$this->loadedPkDetection) {
             $this->loadedPkDetection = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 $startColor = $cell->getStyle()->getFill()->getStartColor()->getRGB();
                 $endColor = $cell->getStyle()->getFill()->getEndColor()->getRGB();
 
@@ -185,14 +185,14 @@ class CellParser extends BaseObject
 
         if (!$this->loadedPkGetting) {
             $this->loadedPkGetting = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 return $cell->getValue();
             };
         }
 
         if (!$this->savedRowsDetection) {
             $this->savedRowsDetection = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 $startColor = $cell->getStyle()->getFill()->getStartColor()->getRGB();
                 $endColor = $cell->getStyle()->getFill()->getEndColor()->getRGB();
 
@@ -202,14 +202,14 @@ class CellParser extends BaseObject
 
         if (!$this->savedRowsGetting) {
             $this->savedRowsGetting = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 return $cell->getValue();
             };
         }
 
         if (!$this->loadedRowsDetection) {
             $this->loadedRowsDetection = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 $startColor = $cell->getStyle()->getFill()->getStartColor()->getRGB();
                 $endColor = $cell->getStyle()->getFill()->getEndColor()->getRGB();
 
@@ -219,14 +219,14 @@ class CellParser extends BaseObject
 
         if (!$this->loadedRowsGetting) {
             $this->loadedRowsGetting = function ($cell) {
-                /* @var $cell PHPExcel_Cell */
+                /* @var $cell Cell */
                 return $cell->getValue();
             };
         }
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return boolean
      */
     public function isModelLabel($cell)
@@ -235,7 +235,7 @@ class CellParser extends BaseObject
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return string
      * @throws CellException
      */
@@ -250,7 +250,7 @@ class CellParser extends BaseObject
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return boolean
      */
     public function isModelDefaultsLabel($cell)
@@ -259,7 +259,7 @@ class CellParser extends BaseObject
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return mixed
      * @throws CellException
      */
@@ -274,7 +274,7 @@ class CellParser extends BaseObject
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return boolean
      */
     public function isAttributeName($cell)
@@ -283,7 +283,7 @@ class CellParser extends BaseObject
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return string
      */
     public function getAttributeName($cell)
@@ -292,7 +292,7 @@ class CellParser extends BaseObject
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return boolean
      */
     public function isSavedPk($cell)
@@ -301,7 +301,7 @@ class CellParser extends BaseObject
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return string
      * @throws CellException
      */
@@ -316,7 +316,7 @@ class CellParser extends BaseObject
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return boolean
      */
     public function isLoadedPk($cell)
@@ -325,7 +325,7 @@ class CellParser extends BaseObject
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return string
      * @throws CellException
      */
@@ -335,7 +335,7 @@ class CellParser extends BaseObject
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return boolean
      */
     public function isSavedRows($cell)
@@ -344,7 +344,7 @@ class CellParser extends BaseObject
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return string
      * @throws CellException
      */
@@ -359,7 +359,7 @@ class CellParser extends BaseObject
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return boolean
      */
     public function isLoadedRows($cell)
@@ -368,7 +368,7 @@ class CellParser extends BaseObject
     }
 
     /**
-     * @param PHPExcel_Cell $cell
+     * @param Cell $cell
      * @return string
      * @throws CellException
      */
